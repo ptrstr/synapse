@@ -1,5 +1,6 @@
 extern crate rand;
 use rand::Rng;
+use crate::utils;
 
 pub struct Neuron {
 	bias: f64,
@@ -10,7 +11,7 @@ impl Neuron {
 		let mut rng = rand::thread_rng();
 
 		Neuron {
-			bias: rng.gen(),
+			bias: rng.gen_range(-1_f64, 1_f64),
 		}
 	}
 
@@ -32,6 +33,6 @@ impl Neuron {
 			sum += inputs[i] * weights[i];
 		}
 
-		return sum;
+		return utils::sigmoid(sum);
 	}
 }
