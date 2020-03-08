@@ -90,6 +90,7 @@ dependencies = [
 name = "synapse_test"
 version = "0.1.0"
 dependencies = [
+ "rand",
  "synapse",
 ]
 

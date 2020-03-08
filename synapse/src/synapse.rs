@@ -4,8 +4,8 @@ use crate::neuron;
 use crate::utils;
 
 pub struct Synapse {
-	pub neurons: Vec<Vec<neuron::Neuron>>,
-	pub weights: Vec<Vec<Vec<f64>>>,
+	neurons: Vec<Vec<neuron::Neuron>>,
+	weights: Vec<Vec<Vec<f64>>>,
 }
 
 impl Synapse {
@@ -84,14 +84,12 @@ impl Synapse {
 			errors.push(vec![0.0; self.neurons[cur_layer-1].len()]);
 			for prev_neuron in 0..self.neurons[cur_layer-1].len() {
 				weight_deltas.push(vec![]);
-				
 				for cur_neuron in 0..self.neurons[cur_layer].len() {
 					weight_deltas[prev_neuron].push(gradients[cur_neuron] * guesses[cur_layer - 1][prev_neuron]);
 				}
 				
 				for prev_weight in 0..self.weights[cur_layer-1][prev_neuron].len() {
 					self.weights[cur_layer-1][prev_neuron][prev_weight] += weight_deltas[prev_neuron][prev_weight];
-					
 					let new_error = errors[errors.len() - 2][prev_weight] * self.weights[cur_layer-1][prev_neuron][prev_weight];
 					let cur_error_layer = errors.len() - 1;
 					errors[cur_error_layer][prev_neuron] += new_error;
