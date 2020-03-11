@@ -3,13 +3,13 @@ use rand::Rng;
 use crate::neuron;
 use crate::utils;
 
-pub struct Synapse {
+pub struct NeuralNetwork {
 	neurons: Vec<Vec<neuron::Neuron>>,
 	weights: Vec<Vec<Vec<f64>>>,
 }
 
-impl Synapse {
-	pub fn new(layers: Vec<usize>) -> Synapse {
+impl NeuralNetwork {
+	pub fn new(layers: Vec<usize>) -> NeuralNetwork {
 		let mut neurons = vec![];
 		
 		let mut rng = rand::thread_rng();
@@ -36,7 +36,7 @@ impl Synapse {
 		}
 
 
-		Synapse {
+		NeuralNetwork {
 			neurons: neurons,
 			weights: weights,
 		}

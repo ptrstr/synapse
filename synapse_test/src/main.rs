@@ -3,7 +3,7 @@ extern crate rand;
 use rand::Rng;
 
 fn main() {
-	let mut x = synapse::synapse::Synapse::new(vec![2,2,1]);
+	let mut x = synapse::neural_network::NeuralNetwork::new(vec![2,2,1]);
 	let learning_rate = 0.25;
 	
 	let data = [
