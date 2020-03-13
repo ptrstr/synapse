@@ -2,6 +2,7 @@ extern crate rand;
 use rand::Rng;
 use crate::utils;
 
+#[derive(Clone)]
 pub struct Neuron {
 	bias: f64,
 }

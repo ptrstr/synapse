@@ -1,10 +1,15 @@
 [package]
 name = "synapse"
 version = "0.1.0"
-authors = ["pi"]
+authors = ["ptrstr <57736901+ptrstr@users.noreply.github.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 rand = "0.7.3"
+json = "0.12.2"
+
+[lib]
+name = "synapse"
+crate-type = ["dylib"]
